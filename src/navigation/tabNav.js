@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from '../screens/home.js';
-import DetailScreen from '../screens/detail.js';
-import SampleScreen from '../screens/sample.js';
+import HomeStack from './homeStack.js';
+import TestScreen from '../screens/testScreen.js';
+import LibraryScreen from '../screens/library.js';
 
 const Tab = createBottomTabNavigator();
+// const Tab = createMaterialTopTabNavigator();
 
 export default function TabNavigator() {
 
@@ -22,27 +22,26 @@ export default function TabNavigator() {
                         iconName = focused
                             ? 'md-home'
                             : 'home-outline';
-                    } else if (route.name === 'Details') {
+                    } else if (route.name === 'Library') {
                         iconName = focused ? 'ios-list-box' : 'ios-list';
-                    } else if (route.name === 'Sample') {
+                    } else if (route.name === 'Profile') {
                         iconName = focused
                             ? 'ios-information-circle'
                             : 'ios-information-circle-outline';
                     }
-
-                    // You can return any component that you like here!
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
+                style: {}
             })}
             tabBarOptions={{
-                style: { height: 50, paddingBottom: 8, paddingTop: 8 },
+                style: { height: 50, paddingBottom: 8, paddingTop: 8, backgroundColor: '#63cdda' },
                 activeTintColor: 'tomato',
                 inactiveTintColor: 'gray',
             }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Details" component={DetailScreen} />
-            <Tab.Screen name="Sample" component={SampleScreen} />
+            <Tab.Screen name="Home" component={HomeStack} />
+            <Tab.Screen name="Library" component={LibraryScreen} />
+            <Tab.Screen name="Profile" component={TestScreen} />
         </Tab.Navigator>
 
     );

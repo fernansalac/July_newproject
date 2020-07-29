@@ -3,7 +3,7 @@ import { globalStyle } from '../styles/styles.js';
 
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-export default function SampleScreen({ route, navigation }) {
+export default function FeedScreen({ route, navigation }) {
     return (
         <View style={globalStyle.container}>
             <Text style={globalStyle.title}>{route.name} Screen</Text>
